@@ -1,0 +1,37 @@
+<div class="user_box">
+	<span style="font-size: 150%">Shawn Malloy</span>
+	<div style="float:left; margin-right:5px">
+	<%=image_tag @user.avatar.url(:thumb)%>
+	</div>
+	
+	<div class="info_box"><%="#{@user.tattoos.count} #{pluralize(@user.tattoos.count, "Tattoo")}"%></div>
+	<div class="info_box">200 Friends</div>
+	<div class="info_box">3 Artists</div>
+
+	<div style="clear:both"></div>
+</div>
+
+<p>
+  <b>Username:</b>
+  <%=h @user.username %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<h2>Tattoo Photos</h2>
+<div class="photos">
+	<% @tattoos.each do |tattoo| %>
+	<div class="photo">
+		<%= image_tag tattoo.photo.url(:thumb) %>
+	</div>
+	<% end %>
+	<div style="clear:both">
+		
+	</div>
+</div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

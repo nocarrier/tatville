@@ -1,0 +1,24 @@
+<h1>Editing tattoo</h1>
+
+<% form_for(@tattoo, :html => {:multipart=>true}) do |f| %>
+<%= f.error_messages %>
+
+<p>
+	<%= f.label :title %><br />
+	<%= f.text_field :title %>
+</p>
+<p>
+	<%= f.label :description %><br />
+	<%= f.text_area :description %>
+</p>
+
+<p>
+	<%=f.file_field :photo %>
+</p>
+<p>
+	<%= f.submit 'Update' %>
+</p>
+<% end %>
+
+<%= link_to 'Show', @tattoo %> |
+<%= link_to 'Back', tattoos_path %>
